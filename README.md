@@ -8,3 +8,5 @@ Esto es una práctica de Git
 - Enviar los cambios a GitHub (git pull)
 
 Es Todo!
+
+<http://escuela.it>
