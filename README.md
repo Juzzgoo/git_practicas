@@ -7,4 +7,5 @@ Esto es una práctica de Git
 - Confirmar los cambios (git commit)
 - Enviar los cambios a GitHub (git pull)
 
-Es Todo!
+Es Todo amigos!
+hola mundo
