@@ -1,6 +1,6 @@
 # Práctica de Git
 
-Esto es una práctica de Git
+Esto es una práctica de Git para el master
 
 - Clonar un repositorio (git clone)
 - Cambiar el código
