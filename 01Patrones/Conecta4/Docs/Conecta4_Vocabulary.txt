@@ -1,0 +1,27 @@
+@startuml
+
+Connect4 "1" *--> Board
+Connect4 "2" *--> Player
+Connect4  *-->"7..42" Turn
+Connect4"42"*-->Piece
+Turn "1"*--> Insertion
+Board *--> "7" Column
+Board *--> "6" File
+Board *--> "24" Cell
+Cell..>"1"File
+Cell..>"1"Column
+Player"21"*-->Piece
+Piece<|--"21" Yellow
+Piece<|--"21" Red
+Player --> Goal
+Player"3..21"..>Turn
+Goal"4"*-->Piece
+Goal<|-- Diagonal
+Goal<|-- Vertical
+Goal<|-- Horizontal
+Goal"4..21"..>Insertion
+Insertion ..>Cell
+Insertion ..>Piece
+Insertion..>"!Goal"Turn
+
+@enduml
