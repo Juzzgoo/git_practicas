@@ -35,4 +35,8 @@ Universo Santa Tecla
   
 ![Instrucciones](Docs/Conecta4.png)  
   
+<<<<<<< HEAD
  
+=======
+ 
+>>>>>>> 5463f5b5253e70fd7b8ed4a550b1cc433c2ce87d
