@@ -29,8 +29,6 @@ Universo Santa Tecla
 
 ![Estado_final](Docs/Conecta4.png)  
   
-### instructions  
-  
-![Instrucciones](Docs/Conecta4.pngg)  
+### instructions   
   
 ![Instrucciones](Docs/Conecta4.png)  
