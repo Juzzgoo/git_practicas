@@ -1,0 +1,24 @@
+@startuml
+
+start
+
+repeat
+  :Put Yellow;
+  :Put Red;
+repeat while (There are less than three yellow disk?)
+repeat
+-Put Yellow
+if (There are four yellow disk in a row, file or diagonal?) then (no)
+      :Put Red;
+        if (There are four red disk in a row, file or diagonal?) then (no)
+          break
+          endif
+          #palegreen:Alert the winner is red;
+          stop
+break
+endif
+  #palegreen:Alert the winner is yellow;
+stop
+
+
+@enduml
