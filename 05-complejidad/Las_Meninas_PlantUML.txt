@@ -1,0 +1,54 @@
+@startuml
+title Las Meninas de Velázquez \n
+object plane_Of_Light
+plane_Of_Light : "Las Meninas de Velázquez"
+object first_Plane
+object second_Plane
+object third_Plane
+object vanising_Plane
+object out_of_Plane
+object infanta
+infanta : Margarita
+object girly
+girly : 1.-Isabel
+girly : 2.-María Agustina
+object dwarf
+dwarf : 1.-Mari Barboa
+dwarf : 2.-Nicolasito
+object the_Dog
+the_Dog : Mastín Español
+object the_Painter
+the_Painter : Diego de Velázquez
+object the_Maid
+the_Maid : Marcela de Ulloa
+object ladyKeeper
+ladyKeeper : Azcona "unknown"
+object roomer
+roomer : José Nieto Velázquez
+object the_Kings
+object the_Mirror_Plane
+the_Kings : Felipe IV
+the_Kings : Mariana de Austria
+object observer
+observer : Myself
+
+plane_Of_Light *--> first_Plane
+plane_Of_Light *--> second_Plane
+plane_Of_Light *--> third_Plane
+plane_Of_Light *--> vanising_Plane
+plane_Of_Light *--> out_of_Plane
+plane_Of_Light *--> the_Mirror_Plane
+
+first_Plane *--> infanta
+first_Plane *--> girly
+first_Plane *--> dwarf
+first_Plane *--> the_Dog
+second_Plane *--> the_Painter
+third_Plane *--> the_Maid
+third_Plane *--> ladyKeeper
+vanising_Plane *--> roomer
+out_of_Plane *-- the_Kings
+out_of_Plane *-- observer
+the_Mirror_Plane *-- the_Kings
+
+@enduml
