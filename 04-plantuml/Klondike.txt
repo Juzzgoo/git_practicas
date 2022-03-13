@@ -1,0 +1,101 @@
+@startuml
+
+title Klondike
+class Klondike
+class Player
+class Movement
+class Goal
+note left
+build the four foundation
+of cards in order ace to king
+end note
+
+Abstract Pile
+class Foundation
+class Card
+{
+ - rank : Rank
+ - is TurnedUp: boolean
+}
+class Stock
+class Waste
+class Tableau
+Abstract Suit
+Enum Rank{
+Ace
+2
+3
+4
+5
+6
+7
+8
+9
+10
+Jack
+Queen
+King
+}
+Abstract Color
+class Club
+class Spade
+class Heart
+class Diamond
+class Red
+class Black
+Enum MovementType{
+ DeckToTableau
+ StockToWaste
+ WasteToTableau
+ WasteToFoundation
+ WasteToStock
+ TableauToFoundation
+ TableauToTableau
+ FoundationToTableau
+}
+Klondike *--> "4" Foundation
+Klondike *-down-> Player
+Klondike *--> Stock
+Klondike *--> Waste
+Klondike *--> "7" Tableau
+Player -down-> Goal
+Player .down.> "n" Movement
+
+Movement -down-> "1..n" Card
+Movement *-down-> Pile : Origin
+Movement *-down-> Pile : Destination
+Movement -right-> MovementType : Types
+
+Goal -down-> "4" Foundation : Complet
+Goal -.-right-> "n" Movement
+
+Pile <|-down- Foundation
+Pile <|-down- Stock
+Pile <|-down-Waste
+Pile <|-down- Tableau
+
+Card *-down-> Suit
+Card *-down-> Rank
+
+Suit <|-down- Club
+Suit <|-down- Spade
+Suit <|-down- Diamond
+Suit <|-down- Heart
+Suit *-down- Color
+
+Foundation -down-> Suit
+Foundation o-down-> "0..13" Card
+
+Color <|-down-> Black
+Color <|-down-> Red
+
+Diamond *-down-> Red
+Club *-down-> Black
+Heart *-down-> Red
+Spade *-down-> Black
+
+Stock o-down-> "0..24" Card
+Tableau o-down-> "0..n" Card
+Waste o-down-> "0..n" Card
+
+@enduml
