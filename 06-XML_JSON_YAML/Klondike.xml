@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Klondike>
+    <player id="1000">
+        <playerName>Julián</playerName>
+    </player>
+    <initialState>
+        <stock id="stock">
+            <cardFaceDown numCards ="24"/>
+        </stock>
+        <wate id="waste" numCards="0"/>
+        <foundations>
+            <foundation id="clubs" numCards="0"/>
+            <foundation id="hearts" numCards="0"/>
+            <foundation id="diamonds" numCards="0"/>
+            <foundation id="spades" numCards="0"/>
+        </foundations>
+        <tableaus>
+            <tableau id="t1">
+                <cardFaceUp numcards="1" suit="hearts" rank="Ace"/>
+            </tableau>
+            <tableau id="t2">
+                <cardFaceDown numCards="1"/>
+                <cardFaceUp numcards="1" suit="diamonds" rank="Queen"/>
+            </tableau>
+            <tableau id="t3">
+                <cardFaceDown numCards="2"/>
+                <cardFaceUp numcards="1" suit="spades" rank="King"/>
+            </tableau>
+            <tableau id="t4">
+                <cardFaceDown numCards="3"/>
+                <cardFaceUp numcards="1" suit="hearts" rank="6"/>
+            </tableau>
+            <tableau id="t5">
+                <cardFaceDown numCards="4"/>
+                <cardFaceUp numcards="1" suit="diamonds" rank="5"/>
+            </tableau>
+            <tableau id="t6">
+                <cardFaceDown numCards="5"/>
+                <cardFaceUp numcards="1" suit="hearts" rank="7"/>
+            </tableau>
+            <tableau id="t7">
+                <cardFaceDown numCards="6"/>
+                <cardFaceUp numcards="1" suit="clubs" rank="2"/>
+            </tableau>
+        </tableaus>
+    </initialState>
+    <actions>
+        <action id="1">
+            <cardFaceUp numcards="1" suit="hearts" rank="Ace"/>
+            <from idref="t1"/>
+            <to idref="hearts"/>
+        </action>
+        <action id="2">
+            <cardFaceUp numcards="1" suit="spades" rank="King"/>
+            <from idref="t3"/>
+            <to idref="t1"/>
+            <tableau id="t1">
+                <cardFaceUp numcards="1" suit="spades" rank="King"/>
+            </tableau>
+        </action>
+        <action id="3">
+            <cardTurnUp numcards="1"/>
+            <from idref="t3"/>
+            <to idref="t3"/>
+            <tableau id="t3">
+                <cardFaceDown numCards="1"/>
+                <cardFaceUp numcards="1" suit="clubs" rank="Queen"/>
+            </tableau>
+        </action>
+        <action id="4">
+            <cardFaceUp numcards="1" suit="diamonds" rank="Queen"/>
+            <from idref="t2"/>
+            <to idref="t1"/>
+            <tableau id="t1">
+                <cardFaceUp numcards="1" suit="spades" rank="King"/>
+                <cardFaceUp numcards="1" suit="clubs" rank="Queen"/>
+            </tableau>
+        </action>
+        <action id="5">
+            <cardTurnUp numcards="1" idref="stock"/>
+            <from idref="stock"/>
+            <to idref="waste"/>
+            <waste id="waste">
+                <cardFaceUp numcards="1" suit="hearts" rank="10"/>
+            </waste>
+            <stock id="stock">
+                <cardFaceDown numCards ="23"/>
+            </stock>
+        </action>
+        
+        ...
+
+        <action id="n">
+            <cardFaceUp numcards="1" idref="t1" suit="spades" rank="King"/>
+            <from idref="t1"/>
+            <to idref="hearts"/>
+        </action>
+        <gameCompleted/>
+    </actions>
+</Klondike>
