@@ -170,11 +170,15 @@ Move ..> Deck
 Move --> Playmat
 Playmat o--> Pile
 
-Pile <|-- "0..24" Stock
-Pile <|-- "0..24" Waste 
-Pile <|-- "4" Foundation
-Pile <|-- "7" Tableau
-Pile o--> "0..52" Deck
+Pile <|-- Stock
+Pile <|-- Waste 
+Pile <|-- Foundation
+Pile <|-- Tableau
+
+Foundation o--> "0..13" Card
+Stock o--> "0..24" Card
+Tableau o--> "0..18" Card
+Waste o--> "0..24" Card
 
 Suit <|-- Club
 Suit <|-- Spade
@@ -182,5 +186,12 @@ Suit <|-- Diamond
 Suit <|--Heart
 Card *--> Suit
 Card *--> Rank
-Suit *--> Color
+Suit --> Color
+Color <|--> Red
+Color <|--> Black
+Club *--> Black
+Spade *--> Black
+Diamond *--> Red
+Heart *--> Red
+
 @enduml
