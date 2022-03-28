@@ -1,6 +1,6 @@
 @startuml
 
-title Klondike
+title Klondike_0
 class Klondike
 class Player
 class Movement
@@ -98,4 +98,89 @@ Stock o-down-> "0..24" Card
 Tableau o-down-> "0..n" Card
 Waste o-down-> "0..n" Card
 
+@enduml
+
+@startuml
+
+title Klondike
+
+class Klondike
+class Player
+class Playmat
+class Deck
+class Goal
+class Stock{
+{static} maxCards = 52 : int
+}
+class Foundation{
+'{static} maxCards = 13 : int
+}
+class Tableau{
+'{static} maxCards = 28 : int
+}
+class Waste{
+'{static} maxCards = 24 : int
+}
+class Card{
+-rank : Rank
+-suit : Suit
+-IsTurnedUp : boolean
+}
+abstract Pile{
+- cardList : List
+# validMove() : boolean
+}
+abstract Suit{
+- color :Color
+}
+class Move{
+-origin : Pile
+-cardList : Card
+-destination : Pile
+}
+enum Color{
+RED
+BLACK
+}
+enum Rank{
+A
+2
+3
+4
+5
+6
+7
+8
+9
+1
+J
+Q
+K
+}
+
+Klondike *--> Player
+Klondike *--> Deck
+Klondike *--> Playmat
+Deck *-down-> "52" Card
+Player ..> Move
+Player --> Goal
+Goal --> "4" Foundation : "Complet"
+Goal ..> "n" Move
+Move ..> Deck
+Move --> Playmat
+Playmat o--> Pile
+
+Pile <|-- "0..24" Stock
+Pile <|-- "0..24" Waste 
+Pile <|-- "4" Foundation
+Pile <|-- "7" Tableau
+Pile o--> "0..52" Deck
+
+Suit <|-- Club
+Suit <|-- Spade
+Suit <|-- Diamond
+Suit <|--Heart
+Card *--> Suit
+Card *--> Rank
+Suit *--> Color
 @enduml
