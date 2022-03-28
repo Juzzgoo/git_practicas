@@ -122,21 +122,17 @@ class Waste{
 '{static} maxCards = 24 : int
 }
 class Card{
--rank : Rank
--suit : Suit
 -IsTurnedUp : boolean
 }
 abstract Pile{
-- cardList : List
-# validMove() : boolean
++show() : boolean
++stacable():boolean
 }
 abstract Suit{
 - color :Color
 }
 class Move{
--origin : Pile
--cardList : Card
--destination : Pile
++validMove() : boolean
 }
 enum Color{
 RED
@@ -166,9 +162,14 @@ Player ..> Move
 Player --> Goal
 Goal --> "4" Foundation : "Complet"
 Goal ..> "n" Move
-Move ..> Deck
 Move --> Playmat
-Playmat o--> Pile
+Move --> Pile :"Origin"
+Move --> Pile :"Destination"
+
+Playmat o--> "7" Tableau
+Playmat o--> Stock
+Playmat o--> Waste
+Playmat o--> "4" Foundation
 
 Pile <|-- Stock
 Pile <|-- Waste 
