@@ -110,23 +110,22 @@ class Playmat
 class Deck
 class Goal
 class Stock{
-{static} maxCards = 52 : int
+{static} maxCards = 24 : int
 }
 class Foundation{
-'{static} maxCards = 13 : int
++stacable():boolean
 }
 class Tableau{
-'{static} maxCards = 28 : int
++stacable():boolean
 }
 class Waste{
-'{static} maxCards = 24 : int
+{static} maxCards = 24 : int
 }
 class Card{
 -IsTurnedUp : boolean
 }
 abstract Pile{
 +show() : boolean
-+stacable():boolean
 }
 abstract Suit{
 - color :Color
@@ -157,9 +156,10 @@ K
 Klondike *--> Player
 Klondike *--> Deck
 Klondike *--> Playmat
+Deck .right.> Playmat
 Deck *-down-> "52" Card
 Player ..> Move
-Player --> Goal
+Player -right-> Goal
 Goal --> "4" Foundation : "Complet"
 Goal ..> "n" Move
 Move --> Playmat
