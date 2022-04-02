@@ -1,0 +1,25 @@
+@startyaml
+
+classes:
+ -id: X
+  attributes:
+   -id: atributo
+    type: int
+   -id: atributo2
+    type: boolean
+ -id: Y
+ -id: Z
+relations:
+ -type: composition
+  origin: 
+   classId: X
+  target:
+   classId: Y
+  description: "Colaboration"
+ -type: inheritance
+  origin: 
+   classId: Z
+  target:
+   classId: X
+
+@endyaml
