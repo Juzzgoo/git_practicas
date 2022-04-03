@@ -13,7 +13,7 @@ repeat
     endif
     ->NOK;
     #red:Put Red;
-repeat while (Ther are four red disk?) is (no) not (Red Win)
+repeat while (There are four red disk?) is (NOK) not (Red Win)
 ->//game over//;
 :Alert "Success";
 stop
