@@ -1,0 +1,21 @@
+@startuml
+
+start
+
+repeat
+  #yellow:Put Yellow;
+  #red:Put Red;
+repeat while (There are less than three yellow disk?)
+repeat
+  #yellow:Put Yellow;
+    if (There are four yellow disk?) then (Yellow win)
+      break
+    endif
+    ->NOK;
+    #red:Put Red;
+repeat while (Ther are four red disk?) is (no) not (Red Win)
+->//game over//;
+:Alert "Success";
+stop
+
+@enduml
