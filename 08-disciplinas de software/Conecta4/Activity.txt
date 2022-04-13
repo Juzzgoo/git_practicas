@@ -1,5 +1,5 @@
 @startuml
-
+title Activity Connect4
 start
 
 repeat
@@ -13,9 +13,20 @@ repeat
     endif
     ->NOK;
     #red:Put Red;
-repeat while (There are four red disk?) is (NOK) not (Red Win)
+repeat while (There are four red disk? || there was the last red disk) is (NOK) not (Red Win or Tie)
 ->//game over//;
 :Alert "Success";
 stop
 
+@enduml
+
+@startuml
+title Activity Connect4
+State A as " "
+State B as " "
+[*] --> A
+A --> [*] : [There are four red tiles on line||Is the last red tile]
+A --> B :Put Yellow
+B --> A : Put Red
+B --> [*] : [There are four yellow tiles on line]
 @enduml

@@ -1,0 +1,18 @@
+@startuml
+
+class Peopleware
+class Hardware
+class Software
+class Firmware
+class Middleware
+class Dataware
+
+Peopleware --> Software
+Peopleware --> Hardware
+Software <|-- Firmware
+Software <|-- Middleware
+Software <|-- Dataware
+Hardware *--> Firmware
+Hardware o-right-> Software
+
+@enduml

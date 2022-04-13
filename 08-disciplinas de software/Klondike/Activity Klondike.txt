@@ -1,0 +1,25 @@
+@startuml
+title Card location with StateChart diagram
+
+
+[*]--> suffle
+suffle --> stock :the rest of cards facedown
+suffle --> tableau :put one face up each tableau\n0..6 facedown
+tableau:7 tableaux
+tableau: 28 cards
+stock --> waste :turn faceup one, two or three
+stock: 24 cards
+waste --> stock :reset
+waste --> foundation :move in order ace to king\none by one
+waste: one by one
+waste: in pairs
+waste: in threes
+foundation: 4 foundations
+foundation: order ace-king
+tableau -->foundation :[n+1 same suit same color]
+foundation --> tableau : [n-1 different color]
+waste --> tableau :[is king? only to empty tableau or the faceup card\nof destiny tableau is n+1 and different color]
+tableau --> tableau :[the top one is king? only to empty tableau or\nthe bottom one of destiny tableau is n+1\nand different color tham the top one origin tableau\none or more cards or turnup the top one]
+foundation -->[*] :[is completed?\nGoal]
+tableau -->[*] :[is blocked?\ngame over]
+@enduml
