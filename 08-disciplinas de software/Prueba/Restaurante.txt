@@ -1,0 +1,68 @@
+@startuml
+
+title Restaurante
+class Restaurante
+class Cocina
+class Comedor
+class Terraza
+abstract Equipo
+class Comensal
+enum Menu{
+Desayuno
+Comida
+Cena
+}
+class Carta
+class Plato
+class JefeDePersonal
+class JefeDeCocina
+class Camarero
+class Cocinero
+enum Ingrediente{
+Cebolla
+Trigo
+...
+}
+class Envio
+class Critico
+class Entrevista
+abstract Ensayo
+abstract Reglas
+Restaurante *--> Cocina
+Restaurante *--> Comedor
+Restaurante *--> Terraza
+Restaurante *--> Envio
+Restaurante *--> Equipo
+Restaurante o--> Comensal
+Comensal <|-down- Critico
+Comensal ..> Menu
+Menu -> Carta
+Carta o--> Plato
+Plato o--> Ingrediente
+Comensal ..> Terraza
+Comensal ..> Comedor
+Comensal ..> Envio
+Equipo o--> JefeDePersonal
+Equipo o--> Camarero
+Equipo -> Entrevista
+JefeDePersonal o--> Reglas
+JefeDePersonal -> Entrevista
+Entrevista -> Ensayo
+Ensayo <.. Cocinero
+Ensayo <.. Camarero
+Reglas <.. Camarero
+Camarero -> Terraza
+Camarero -> Comedor
+Camarero -> Comensal
+Equipo o--> JefeDeCocina
+Equipo o--> Cocinero
+JefeDeCocina o--> Reglas
+JefeDeCocina -> Entrevista
+Reglas <.. Cocinero
+Cocinero -> Cocina
+Cocinero -> Plato
+Cocina -> Carta
+Comedor -> Carta
+
+
+@enduml
