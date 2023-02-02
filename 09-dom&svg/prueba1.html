@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Es una página de prueba para trabajar con gráficos vectoriales svg</title>
+    </head>
+    <body>
+        <p>Aquí abajo va el svg</p>
+        <svg width="300px" height="300px" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100,50 A25,25 0 1 1 100,49" fill="none" stroke="black" />
+            <path d="M100,87 A25,37 0 1 1 100,86" fill="none" stroke="black" />
+            <path d="M-25,100 C50,125 100,75 175,100" fill="none" stroke="blue" />
+            <path d="M25,125 Q50,175 75,125 100,175 125,125" fill="none" stroke="green" />
+            <path d="M150,20
+                     A45,45 0 0 0 195,65
+                     L195,20 Z" fill="none" stroke="red" />
+            <path d="M250,20
+                     A45,45 0 1 0 295,65
+                     L295,20 Z" fill="none" stroke="black" />
+            <path d="M180,180
+                     A45,45 0 0 1 225,225
+                     L225,180 Z" fill="none" stroke="black" />
+            <path d="M250,180
+                     A45,45 0 1 1 295,225
+                     L295,180 Z" fill="none" stroke="black" />
+          </svg>
+        <h2>Reutilización</h2>
+        <svg width="80" height="20" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <symbol id="dot" width="10" height="10">
+              <circle cx="5" cy="5" r="5" />
+            </symbol>
+            <path d="M0,10 h80 M10,0 v20 M25,0 v20 M40,0 v20 M55,0 v20 M70,0 v20" fill="none" stroke="pink" />
+            <use href="#dot" x="5"  y="5" />
+            <use href="#dot" x="20" y="5" />
+            <use href="#dot" x="35" y="5" />
+            <use href="#dot" x="50" y="5" />
+            <use href="#dot" x="65" y="5" />
+          </svg>
+          <h2>Reutilización</h2>
+          <svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <g fill="white" stroke="green" stroke-width="5">
+              <circle cx="40" cy="40" r="25" />
+              <circle cx="60" cy="60" r="25" />
+            </g>
+          </svg>
+          <h1>Estilos</h1>
+          <h2>Rellenos</h2>
+          <p><strong class="blue"><em>fill</em></strong>, se especifica el color de relleno: <em>red, green, blue, yellow, &#8230;&#8203;</em></p>
+          <svg width="300px" height="300px" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 25 H100 V75 H50 Z" fill="red" stroke="black" />
+            <path d="M75 50 L50 125 H100 Z" fill="green" stroke="black" />
+            <path d="M-1000 100 H1000" fill="blue" stroke="black" />
+            <path d="M25 125 L50 175 L75 125 L100 175 L125 125" fill="#808080" stroke="black" />
+            <path d="M200,0 L171,90 L248,35 L152,35 L229,90 Z" fill="black" stroke="red" />
+            <path d="M200,100 L171,190 L248,135 L152,135 L229,190 Z" fill="black" stroke="red" />
+          </svg>
+          <p><strong class="blue"><em>fill-rule</em></strong>, con valores: <em>evenodd o nonzero</em></p>
+          <svg width="300px" height="300px" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 25 H100 V75 H50 Z" fill="red" stroke="black" />
+            <path d="M75 50 L50 125 H100 Z" fill="green" stroke="black" />
+            <path d="M-1000 100 H1000" fill="blue" stroke="black" />
+            <path d="M25 125 L50 175 L75 125 L100 175 L125 125" fill="#808080" stroke="black" />
+            <path d="M200,0 L171,90 L248,35 L152,35 L229,90 Z" fill="black" fill-rule="evenodd" stroke="red" />
+            <path d="M200,100 L171,190 L248,135 L152,135 L229,190 Z" fill="black" fill-rule="nonzero" stroke="red" />
+          </svg>
+          <p><strong class="blue"><em>gradientes</em></p>
+          <svg width="150px" height="150px" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="verticalGradient"
+                  x1="0%" x2="100%" y1="0%" y2="0%" spreadMethod="pad">
+                <stop offset="25%" stop-color="red" />
+                <stop offset="75%" stop-color="green" />
+              </linearGradient>
+              <linearGradient id="horizontalGradient"
+                  x1="0%" x2="0%" y1="100%" y2="0%" spreadMethod="pad">
+                <stop offset="10%" stop-color="red" stop-opacity="1" />
+                <stop offset="90%" stop-color="green" stop-opacity="1" />
+              </linearGradient>
+              <linearGradient id="obliqueGradient"
+                  x1="0%" x2="100%" y1="100%" y2="0%" spreadMethod="pad">
+                <stop offset="10%" stop-color="#00cc00" stop-opacity="1" />
+                <stop offset="30%" stop-color="#006600" stop-opacity="1" />
+                <stop offset="70%" stop-color="#cc0000" stop-opacity="1" />
+                <stop offset="90%" stop-color="#000099" stop-opacity="1" />
+              </linearGradient>
+            </defs>
+            <path d="M50 25 H100 V75 H50 Z" fill="url(#verticalGradient)" stroke="black" />
+            <path d="M75 50 L50 125 H100 Z" fill="url(#horizontalGradient)" stroke="black" />
+            <path d="M-1000 100 H1000" stroke="black" />
+            <path d="M25 125 L50 175 L75 125 L100 175 L125 125" fill="url(#obliqueGradient)" stroke="black" />
+         </svg>
+         <svg width="200px" height="200px" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+                <radialGradient id="gradient">
+                <stop offset="10%" stop-color="gold" />
+                <stop offset="95%" stop-color="red" />
+                </radialGradient>
+            </defs>
+            <circle cx="5" cy="5" r="4" fill="url('#gradient')" />
+         </svg>
+
+    </body>
+</html>
